@@ -1,0 +1,7 @@
+*.ali
+*.o
+.DS_Store
+*.bin
+*.elf
+*.map
+build/
