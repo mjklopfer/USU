@@ -1,0 +1,108 @@
+#include "implementation.oil"
+
+CPU ATMEL_AT91SAM7S256
+{
+  OS LEJOS_OSEK
+  {
+    STATUS = EXTENDED;
+    STARTUPHOOK = FALSE;
+    ERRORHOOK = FALSE;
+    SHUTDOWNHOOK = FALSE;
+    PRETASKHOOK = FALSE;
+    POSTTASKHOOK = FALSE;
+    USEGETSERVICEID = FALSE;
+    USEPARAMETERACCESS = FALSE;
+    USERESSCHEDULER = FALSE;
+  };
+
+  /* Definition of application mode */
+  APPMODE appmode1{};
+
+  /* Task to handle periodically writing to the display */
+  TASK WriteDisplay
+  {
+    AUTOSTART = TRUE { APPMODE = appmode1; };
+    PRIORITY = 2;
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+    STACKSIZE = 512;
+
+    /* Task is triggered by the event EventWriteDisplay and uses the SharedResource semaphore to avoid races */
+    EVENT = EventWriteDisplay;
+    RESOURCE = SharedResource;
+  };
+
+  /* Task to handle periodically reading the value from the color sensor */
+  TASK ReadColorSensor
+  {
+    AUTOSTART = TRUE { APPMODE = appmode1; };
+    PRIORITY = 3;
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+    STACKSIZE = 512;
+
+    /* Task is triggered by the event EventReadSensor and uses the SharedResource semaphore to avoid races */
+    EVENT = EventReadSensor;
+    RESOURCE = SharedResource;
+  };
+
+  /* Task to handle the constant communication with the color sensor */
+  TASK CommColorSensor
+  {
+    AUTOSTART = TRUE { APPMODE = appmode1; };
+    PRIORITY = 1; /* Smaller value means lower priority */
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+    STACKSIZE = 512; /* Stack size */
+  };
+
+  /* Alarm used to trigger the event to write to the display */
+  ALARM AlarmWriteDisplay
+  {
+   	COUNTER = SysTimerCnt;
+   	ACTION = SETEVENT
+   	{
+   		TASK = WriteDisplay;
+   		EVENT = EventWriteDisplay;
+   	};
+   	AUTOSTART = FALSE;
+  };
+
+  /* Event that triggers the write to the display */
+  EVENT EventWriteDisplay
+  {
+   	MASK = AUTO;
+  };
+
+  /* Alarm used to trigger the event to read the sensor data */
+  ALARM AlarmReadSensor
+  {
+   	COUNTER = SysTimerCnt;
+   	ACTION = SETEVENT
+   	{
+   		TASK = ReadColorSensor;
+   		EVENT = EventReadSensor;
+   	};
+   	AUTOSTART = FALSE;
+  };
+
+  /* Event that triggers the read from the sensor */
+  EVENT EventReadSensor
+  {
+   	MASK = AUTO;
+  };
+
+  /* Definition of OSEK Alarm Counter */
+  COUNTER SysTimerCnt
+  {
+    MINCYCLE = 1;
+    MAXALLOWEDVALUE = 10000;
+    TICKSPERBASE = 1; /* One tick is equal to 1msec */
+  };
+
+  /* Definition of the resource (semaphore) that is shared between the ReadSensor and WriteDisplay tasks */
+  RESOURCE SharedResource
+  {
+    RESOURCEPROPERTY = STANDARD;
+  };
+};
