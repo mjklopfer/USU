@@ -1,0 +1,98 @@
+MODULE train_model(signal)
+    VAR
+	mode:{away,wait,bridge};
+	out:{none,arrive,leave};
+    ASSIGN
+	init(mode):=away;
+	init(out):=none;
+	next(out) :=case
+	    mode=away: arrive;
+	    mode=bridge: leave;
+	    TRUE: none;
+	    esac;
+	next(mode):=case
+		next(out)=arrive&mode=away: wait;
+		signal=green&mode=wait: bridge;
+		next(out)=leave&mode=bridge: away;
+		TRUE: mode;
+		esac;
+    
+MODULE railroad_controller(outE,outW)
+    VAR
+	west:{green,red};
+	east:{green,red};
+	nearW:boolean;
+	nearE:boolean;
+    ASSIGN
+	init(west):=red;
+	init(east):=red;
+	init(nearW):=FALSE;
+	init(nearE):=FALSE;
+	next(nearE) :=case
+	    outE=arrive :TRUE;
+	    outE=leave :FALSE;
+	    TRUE :nearE;
+	   esac;
+	next(nearW) :=case
+	    outW=arrive :TRUE;
+	    outW=leave :FALSE;
+	    TRUE :nearW;
+	   esac;
+
+	next(east) := case
+	    next(nearE)=FALSE :red;
+	   
+	    next(nearE)=TRUE & west=red :green;
+	    TRUE :east;
+	   esac;
+	
+
+	next(west) := case
+	    next(nearW)=FALSE :red;
+	    next(nearW)=TRUE & east=red :green;
+	    TRUE :west;
+	   esac;
+    DEFINE
+        
+	signalW:=west;
+	signalE:=east;
+
+    
+MODULE WestFairMonitor(outW,outE,signalW)
+    VAR
+	state:0..3;
+    ASSIGN
+	init(state):=0;
+	next(state) :=case
+	    state=0&outW=arrive: 1;
+	    state=1&outE=leave: 2;
+	    state=2&signalW=green: 0;
+	    state=1&signalW=green: 0;
+	    state=2&outE=leave: 3;
+	    TRUE: state;
+	    esac;
+MODULE EastFairMonitor(outE,outW,signalE)
+    VAR
+	state:0..3;
+    ASSIGN
+	init(state):=0;
+	next(state) :=case
+	    state=0&outE=arrive: 1;
+	    state=1&outW=leave: 2;
+	    state=2&signalE=green: 0;
+	    state=1&signalE=green: 0;
+	    state=2&outW=leave: 3;
+	    TRUE: state;
+	    esac;
+MODULE main
+    VAR
+      controller1: railroad_controller(train1.out,train2.out);
+      train1 : train_model(controller1.signalW);
+      train2 : train_model(controller1.signalE);
+      wmonitor: WestFairMonitor(train1.out,train2.out,controller1.signalW);
+      emonitor: EastFairMonitor(train2.out,train1.out,controller1.signalE);
+      
+--INVARIANT--
+SPEC AG !(train1.mode=bridge&train2.mode=bridge);
+--SPEC AG wmonitor.state !=3;
+--SPEC AG emonitor.state !=3;
