@@ -1,0 +1,27 @@
+MODULE multiplication(m,n)
+       VAR
+	mode: {loop,stop};
+	x: 0..1000;
+	y: 0..1000;
+	INIT
+
+	(x=m)&(y=0)&(mode=loop);
+	TRANS
+
+	((next(x)=(x)-1) & (next(y)=y+n) & (x>0) & (mode=loop) & (next(mode)=loop)) | ((x=0) & (mode=loop) & (next(mode)=stop) &  (next(y)=y) & (next(x)=x))
+
+
+
+
+
+
+
+MODULE main
+       VAR
+       mult1:multiplication(m,n);
+       DEFINE
+       m:=10;
+       n:=5;
+
+
+INVARSPEC (mult1.mode=stop)->(mult1.y=m*n);
