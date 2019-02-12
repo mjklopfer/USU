@@ -1,0 +1,90 @@
+library IEEE;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity buttonDebounce is
+port(
+
+		clk	:in	std_logic;
+		reset :in	std_logic;
+		button	:in	std_logic;
+		number	:out	std_logic_vector(23 downto 0);
+		add		:in	std_logic_vector(9 downto 0);
+
+
+);
+end buttonDebounce;
+
+architecture RTL of buttonDebounce is
+type state is (IDLE,COUNT,ACC);
+signal PS :state;
+signal NS :state;
+signal done :std_logic;
+signal timer :std_logic_vector(7 downto 0);
+signal accumulate :std_logic_vector(23 downto 0);
+
+accState :process(clk)
+	begin
+	if reset='0' then
+		PS<=IDLE;
+		
+	elsif rising_edge(clk) then
+		PS <= NS;
+	end if;
+end process accState;
+		
+debounce: process(clk,button,PS)
+	begin
+		if rising_edge(clk) then
+			case PS is
+				when IDLE =>
+				
+					if(button='1') then
+						NS<=COUNT;
+					else
+						NS<=IDLE;
+					end if;
+				
+				when COUNT =>
+					if(done='1') then
+						if(button='0') then
+							NS<=ACC:
+						else
+							NS<=COUNT;
+						end
+					else
+						NS<=COUNT;
+				
+				when ACC =>
+						NS<=COUNT;
+						accumulate=accumulate+add;
+						
+				end case;
+			end if;
+			
+		end process debounce;
+		
+counter:process(clk,PS);
+if PS=COUNT then
+	if(rising_edge(clk) then
+		timer=timer+1;
+	end if;
+	if timer=X"FF" then
+		done='1';
+	else
+		done='0';
+	end if
+else 
+	done='0';
+	timer=X"00"
+end if;
+	
+
+end process 
+
+number(23 downto 0)<=accumulate(23 downto 0);
+
+
+
+
+end architecture RTL;

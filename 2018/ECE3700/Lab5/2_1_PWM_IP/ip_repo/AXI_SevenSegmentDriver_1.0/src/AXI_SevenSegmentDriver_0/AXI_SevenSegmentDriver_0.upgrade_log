@@ -1,0 +1,49 @@
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2015.4 (win64) Build 1412921 Wed Nov 18 09:43:45 MST 2015
+| Date         : Fri Feb 23 15:33:45 2018
+| Host         : ENG30741 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a35tcpg236-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'AXI_SevenSegmentDriver_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of AXI_SevenSegmentDriver_0 (usu.edu:user:AXI_SevenSegmentDriver:1.0) from (Rev. 2) to (Rev. 3)
+
+
+
+
+
+
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2015.4 (win64) Build 1412921 Wed Nov 18 09:43:45 MST 2015
+| Date         : Fri Feb 23 15:31:55 2018
+| Host         : ENG30741 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a35tcpg236-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'AXI_SevenSegmentDriver_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of AXI_SevenSegmentDriver_0 (usu.edu:user:AXI_SevenSegmentDriver:1.0) from (Rev. 1) to (Rev. 2)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading IP 'AXI_SevenSegmentDriver_0'. These changes may impact your design.
+
+
+-upgrade has added port 'an'
+-upgrade has added port 'dp'
+-upgrade has added port 'seg'
+

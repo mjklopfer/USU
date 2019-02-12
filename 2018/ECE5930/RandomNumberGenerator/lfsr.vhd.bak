@@ -1,0 +1,56 @@
+library IEEE;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity lsfr is
+	port(	
+		MAX10_CLK1_50		in: std_logic;
+		reset 				in: std_logic;
+		go						in: std_logic;
+		SW						in: unsigned(9 downto 0);
+		random				out: unsigned (7 downto 0)
+	
+	);
+	end lsfr
+	
+architecture RTL of lsfr is
+
+	signal seed :unsigned (9 downto 0);
+	signal temp :unsigned (9 downto 0) := x"01";
+
+	begin
+	
+	seed <= SW or "0000000001";
+	
+	
+	generator : process(MAX10_CLK1_50, reset)
+	variable feedback : std_logic := '0';
+	begin
+		
+		if reset='0' then
+			temp<=seed;
+		elsif rising_edge(MAX10_CLK1_50) then
+			if go='0'then
+				feedback <= temp(9) xor temp(6);
+				temp <= feeback & temp(9 downto 1);
+	
+	
+	
+	
+	
+	random (7 downto 0) <= temp (7 downto 0);
+	end architecture RTL
+
+
+	//////////// SEG7 //////////
+	output		     [7:0]		HEX0,
+	output		     [7:0]		HEX1,
+	output		     [7:0]		HEX2,
+	output		     [7:0]		HEX3,
+	output		     [7:0]		HEX4,
+	output		     [7:0]		HEX5,
+
+
+
+	
+);

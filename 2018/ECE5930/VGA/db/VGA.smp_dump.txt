@@ -1,0 +1,22 @@
+
+State Machine - |VGA|sync:sync1|pvs
+Name pvs.vData pvs.vertBP pvs.vSync pvs.vertFP 
+pvs.vertFP 0 0 0 0 
+pvs.vSync 0 0 1 1 
+pvs.vertBP 0 1 0 1 
+pvs.vData 1 0 0 1 
+
+State Machine - |VGA|sync:sync1|phs
+Name phs.hData phs.horizBP phs.hSync phs.horizFP 
+phs.horizFP 0 0 0 0 
+phs.hSync 0 0 1 1 
+phs.horizBP 0 1 0 1 
+phs.hData 1 0 0 1 
+
+State Machine - |VGA|sync:sync1|PS
+Name PS.ACC PS.TRIG PS.COUNT2 PS.COUNT PS.IDLE 
+PS.IDLE 0 0 0 0 0 
+PS.COUNT 0 0 0 1 1 
+PS.COUNT2 0 0 1 0 1 
+PS.TRIG 0 1 0 0 1 
+PS.ACC 1 0 0 0 1 

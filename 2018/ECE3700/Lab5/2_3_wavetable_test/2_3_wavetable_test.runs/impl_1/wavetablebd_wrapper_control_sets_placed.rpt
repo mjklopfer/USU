@@ -1,0 +1,61 @@
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2015.4 (win64) Build 1412921 Wed Nov 18 09:43:45 MST 2015
+| Date         : Fri Mar 23 15:45:46 2018
+| Host         : DESKTOP-PM6UVGK running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file wavetablebd_wrapper_control_sets_placed.rpt
+| Design       : wavetablebd_wrapper
+| Device       : xc7a35t
+------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++-------------------------------------------------------------------+-------+
+|                               Status                              | Count |
++-------------------------------------------------------------------+-------+
+| Number of unique control sets                                     |     8 |
+| Minimum Number of register sites lost to control set restrictions |    28 |
++-------------------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              19 |            8 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              15 |            4 |
+| Yes          | No                    | No                     |              75 |           17 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              15 |            4 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++--------------------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+------------------+----------------+
+|                                     Clock Signal                                     |                     Enable Signal                     |                    Set/Reset Signal                   | Slice Load Count | Bel Load Count |
++--------------------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+------------------+----------------+
+|  wavetablebd_i/c_counter_binary_0/U0/i_synth/i_baseblox.i_baseblox_counter/q_thresh0 |                                                       |                                                       |                1 |              1 |
+|  wavetablebd_i/clk_wiz_0/inst/clk_out1                                               |                                                       |                                                       |                3 |              9 |
+|  wavetablebd_i/clk_wiz_0/inst/clk_out2                                               |                                                       |                                                       |                5 |             11 |
+|  wavetablebd_i/c_counter_binary_0/U0/i_synth/i_baseblox.i_baseblox_counter/q_thresh0 |                                                       | wavetablebd_i/wavetable_0/inst/count[0]_i_1_n_0       |                4 |             15 |
+|  wavetablebd_i/c_counter_binary_0/U0/i_synth/i_baseblox.i_baseblox_counter/q_thresh0 | wavetablebd_i/wavetable_0/inst/next_addr              |                                                       |                4 |             15 |
+|  wavetablebd_i/c_counter_binary_0/U0/i_synth/i_baseblox.i_baseblox_counter/q_thresh0 | wavetablebd_i/wavetable_0/inst/addr_reg[14]_i_1_n_0   | wavetablebd_i/c_shift_ram_3/U0/i_synth/i_bb_inst/q[0] |                4 |             15 |
+|  wavetablebd_i/clk_wiz_0/inst/clk_out2                                               | wavetablebd_i/util_vector_logic_0/U0/Res[0]           |                                                       |               10 |             45 |
+|  wavetablebd_i/clk_wiz_0/inst/clk_out2                                               | wavetablebd_i/c_shift_ram_0/U0/i_synth/i_bb_inst/q[0] |                                                       |                7 |             45 |
++--------------------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+------------------+----------------+
+
+

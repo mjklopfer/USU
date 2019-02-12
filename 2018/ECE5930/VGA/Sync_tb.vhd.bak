@@ -1,0 +1,58 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity sync_test is
+
+end sync;
+
+
+architecture test of sync_test is
+
+component sync is
+port(
+	clk :in std_logic;
+	hs	 :out std_logic;
+	vs  :out std_logic;
+	data_en :out std_logic;
+	horizPos :out integer
+	
+	);
+end component;
+
+signal Tclk :std_logic;
+signal Ths	:std_logic;
+signal Tvs  :std_logic;
+signal Tdata_en :std_logic;
+signal ThorizPos :std_logic;
+
+constant Period :time :=39.722 ns;
+
+begin
+
+
+sync_DUT : sync
+port map(
+	clk => Tclk,
+	hs => Ths,
+	vs => Tvs,
+	data_en => Tdata_en,
+	horizPos => ThorizPos
+
+
+);
+
+clk_process: process
+	begin
+		Tclk <='1';
+		wait for Period/2;
+		Tclk <= '0'
+		wait for Period/2;
+	end process;
+	
+	
+run_proc : process
+begin
+
+	wait for Period*10000
+	
+end process run_proc;

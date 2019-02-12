@@ -1,0 +1,9 @@
+{G:/My Drive/School/Fall_2018/ECE_5930_Reconfigurable_Computing/DE10-Lite_v.2.0.2_SystemCD (1)/Tools/SystemBuilder/CodeGenerated/DE10_LITE/VGA/Sync_tb.vhd} {1 {vcom -work work -2002 -explicit -stats=none {G:/My Drive/School/Fall_2018/ECE_5930_Reconfigurable_Computing/DE10-Lite_v.2.0.2_SystemCD (1)/Tools/SystemBuilder/CodeGenerated/DE10_LITE/VGA/Sync_tb.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity sync_test
+-- Compiling architecture test of sync_test
+
+} {} {}}

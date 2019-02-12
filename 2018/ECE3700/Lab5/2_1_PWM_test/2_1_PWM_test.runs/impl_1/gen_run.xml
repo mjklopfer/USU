@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1521138873">
+  <File Type="OPT-DCP" Name="dim_leds_opt.dcp"/>
+  <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/impl_1/constrs_in.xml"/>
+  <File Type="RUN-SRCS" Name="$PDATADIR/runs/impl_1/sources.xml"/>
+  <File Type="ROUTE-DCP" Name="dim_leds_routed.dcp"/>
+  <File Type="PA-TCL" Name="dim_leds.tcl"/>
+  <File Type="RUN-STRAT" Name="$PDATADIR/runs/impl_1/impl_1.psg"/>
+  <File Type="OPT-DRC" Name="dim_leds_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="dim_leds_timing_summary_init.rpt"/>
+  <File Type="OPT-TIMING" Name="dim_leds_timing_summary_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="dim_leds.hwdef"/>
+  <File Type="PWROPT-DCP" Name="dim_leds_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="dim_leds_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="dim_leds_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="dim_leds_placed.dcp"/>
+  <File Type="PLACE-IO" Name="dim_leds_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="dim_leds_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="dim_leds_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="dim_leds_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="dim_leds_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="dim_leds_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="dim_leds_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="dim_leds_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="dim_leds_postplace_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="dim_leds_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="dim_leds_physopt.dcp"/>
+  <File Type="RDI-RDI" Name="dim_leds.vdi"/>
+  <File Type="PHYSOPT-DRC" Name="dim_leds_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-TIMING" Name="dim_leds_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-DRC" Name="dim_leds_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="dim_leds_drc_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="dim_leds_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="dim_leds_power_summary_routed.pb"/>
+  <File Type="ROUTE-STATUS" Name="dim_leds_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="dim_leds_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="dim_leds_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="dim_leds_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="dim_leds_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="dim_leds_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="dim_leds_clock_utilization_routed.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="dim_leds_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="dim_leds_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="dim_leds_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="dim_leds_timing_summary_postroute_physopted.rpx"/>
+  <File Type="BG-BIT" Name="dim_leds.bit"/>
+  <File Type="BG-BIN" Name="dim_leds.bin"/>
+  <File Type="BITSTR-MSK" Name="dim_leds.msk"/>
+  <File Type="BITSTR-RBT" Name="dim_leds.rbt"/>
+  <File Type="BITSTR-NKY" Name="dim_leds.nky"/>
+  <File Type="BITSTR-BMM" Name="dim_leds_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="dim_leds.mmi"/>
+  <File Type="BITSTR-SYSDEF" Name="dim_leds.sysdef"/>
+  <File Type="BG-BGN" Name="dim_leds.bgn"/>
+  <File Type="BG-DRC" Name="dim_leds.drc"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/Downloads/dim_leds.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../Users/Nathan Tipton/Downloads/dim_leds.v"/>
+        <Attr Name="ImportTime" Val="1521136473"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/pwm_0/pwm_0.xci">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="dim_leds"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/Lab3/Basys3_Master-1.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../2_1_PWM_IP/2_1_PWM_IP.srcs/constrs_1/imports/Lab3/Basys3_Master-1.xdc"/>
+        <Attr Name="ImportTime" Val="1519429040"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="pwm_1"/>
+</GenRun>

@@ -1,0 +1,17 @@
+# system info ADC_Controller on 2018.11.11.09:39:06
+system_info:
+name,value
+DEVICE,10M50DAF484C7G
+DEVICE_FAMILY,MAX 10
+GENERATION_ID,1541954342
+#
+#
+# Files generated for ADC_Controller on 2018.11.11.09:39:06
+files:
+filepath,kind,attributes,module,is_top
+simulation/ADC_Controller.vhd,VHDL,,ADC_Controller,true
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+ADC_Controller.adc_mega_0,ADC_Controller_adc_mega_0

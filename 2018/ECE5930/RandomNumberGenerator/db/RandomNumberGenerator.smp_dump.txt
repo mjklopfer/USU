@@ -1,0 +1,8 @@
+
+State Machine - |Accumulator|buttonDebounce:bd1|PS
+Name PS.ACC PS.TRIG PS.COUNT2 PS.COUNT PS.IDLE 
+PS.IDLE 0 0 0 0 0 
+PS.COUNT 0 0 0 1 1 
+PS.COUNT2 0 0 1 0 1 
+PS.TRIG 0 1 0 0 1 
+PS.ACC 1 0 0 0 1 

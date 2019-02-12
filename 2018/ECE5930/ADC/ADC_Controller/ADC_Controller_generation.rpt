@@ -1,0 +1,30 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate "G:\My Drive\School\Fall_2018\ECE_5930_Reconfigurable_Computing\DE10-Lite_v.2.0.2_SystemCD (1)\Tools\SystemBuilder\CodeGenerated\DE10_LITE\ADC\ADC_Controller.qsys" --block-symbol-file --output-directory="G:\My Drive\School\Fall_2018\ECE_5930_Reconfigurable_Computing\DE10-Lite_v.2.0.2_SystemCD (1)\Tools\SystemBuilder\CodeGenerated\DE10_LITE\ADC\ADC_Controller" --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading ADC/ADC_Controller.qsys
+Progress: Reading input file
+Progress: Adding adc_mega_0 [altera_up_avalon_adc_mega 18.0]
+Progress: Parameterizing module adc_mega_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate "G:\My Drive\School\Fall_2018\ECE_5930_Reconfigurable_Computing\DE10-Lite_v.2.0.2_SystemCD (1)\Tools\SystemBuilder\CodeGenerated\DE10_LITE\ADC\ADC_Controller.qsys" --synthesis=VHDL --output-directory="G:\My Drive\School\Fall_2018\ECE_5930_Reconfigurable_Computing\DE10-Lite_v.2.0.2_SystemCD (1)\Tools\SystemBuilder\CodeGenerated\DE10_LITE\ADC\ADC_Controller\synthesis" --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading ADC/ADC_Controller.qsys
+Progress: Reading input file
+Progress: Adding adc_mega_0 [altera_up_avalon_adc_mega 18.0]
+Progress: Parameterizing module adc_mega_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: ADC_Controller: Generating ADC_Controller "ADC_Controller" for QUARTUS_SYNTH
+Info: adc_mega_0: Starting Generation of ADC Controller for DE-series Board
+Info: adc_mega_0: C:/intelfpga_lite/18.0/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/altera_up_avalon_adv_adc.v C:/Users/Nathan/AppData/Local/Temp/alt7846_6787495540128255683.dir/0002_sopcgen/ADC_Controller_adc_mega_0.v
+Info: adc_mega_0: "ADC_Controller" instantiated altera_up_avalon_adc_mega "adc_mega_0"
+Info: ADC_Controller: Done "ADC_Controller" with 2 modules, 3 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

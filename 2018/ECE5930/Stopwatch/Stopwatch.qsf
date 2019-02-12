@@ -1,0 +1,89 @@
+#============================================================
+# Build by Terasic System Builder
+#============================================================
+
+set_global_assignment -name FAMILY "MAX 10 FPGA"
+set_global_assignment -name DEVICE 10M50DAF484C7G
+set_global_assignment -name TOP_LEVEL_ENTITY "Stopwatch"
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "16.0.0"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.0.0 Lite Edition"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "20:26:06 SEPTEMBER 24,2018"
+set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 484
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 7
+set_global_assignment -name SDC_FILE Stopwatch.SDC
+
+#============================================================
+# CLOCK
+#============================================================
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MAX10_CLK1_50
+set_location_assignment PIN_P11 -to MAX10_CLK1_50
+
+#============================================================
+# SEG7
+#============================================================
+
+#============================================================
+# KEY
+#============================================================
+
+#============================================================
+# End of pin assignments by Terasic System Builder
+#============================================================
+
+
+set_global_assignment -name VHDL_FILE Vhdl1.vhd
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_C14 -to Hex0[0]
+set_location_assignment PIN_E15 -to Hex0[1]
+set_location_assignment PIN_C15 -to Hex0[2]
+set_location_assignment PIN_C16 -to Hex0[3]
+set_location_assignment PIN_E16 -to Hex0[4]
+set_location_assignment PIN_D17 -to Hex0[5]
+set_location_assignment PIN_C17 -to Hex0[6]
+set_location_assignment PIN_D15 -to Hex0[7]
+set_location_assignment PIN_B8 -to areset
+set_location_assignment PIN_A7 -to go_button
+set_location_assignment PIN_C18 -to Hex1[0]
+set_location_assignment PIN_D18 -to Hex1[1]
+set_location_assignment PIN_E18 -to Hex1[2]
+set_location_assignment PIN_B16 -to Hex1[3]
+set_location_assignment PIN_A17 -to Hex1[4]
+set_location_assignment PIN_A18 -to Hex1[5]
+set_location_assignment PIN_B17 -to Hex1[6]
+set_location_assignment PIN_A16 -to Hex1[7]
+set_location_assignment PIN_B20 -to Hex2[0]
+set_location_assignment PIN_A20 -to Hex2[1]
+set_location_assignment PIN_B19 -to Hex2[2]
+set_location_assignment PIN_A21 -to Hex2[3]
+set_location_assignment PIN_B21 -to Hex2[4]
+set_location_assignment PIN_C22 -to Hex2[5]
+set_location_assignment PIN_B22 -to Hex2[6]
+set_location_assignment PIN_A19 -to Hex2[7]
+set_location_assignment PIN_F21 -to Hex3[0]
+set_location_assignment PIN_E22 -to Hex3[1]
+set_location_assignment PIN_E21 -to Hex3[2]
+set_location_assignment PIN_C19 -to Hex3[3]
+set_location_assignment PIN_C20 -to Hex3[4]
+set_location_assignment PIN_D19 -to Hex3[5]
+set_location_assignment PIN_E17 -to Hex3[6]
+set_location_assignment PIN_D22 -to Hex3[7]
+set_location_assignment PIN_F18 -to Hex4[0]
+set_location_assignment PIN_E20 -to Hex4[1]
+set_location_assignment PIN_E19 -to Hex4[2]
+set_location_assignment PIN_J18 -to Hex4[3]
+set_location_assignment PIN_H19 -to Hex4[4]
+set_location_assignment PIN_F19 -to Hex4[5]
+set_location_assignment PIN_F20 -to Hex4[6]
+set_location_assignment PIN_F17 -to Hex4[7]
+set_location_assignment PIN_J20 -to Hex5[0]
+set_location_assignment PIN_K20 -to Hex5[1]
+set_location_assignment PIN_L18 -to Hex5[2]
+set_location_assignment PIN_N18 -to Hex5[3]
+set_location_assignment PIN_M20 -to Hex5[4]
+set_location_assignment PIN_N19 -to Hex5[5]
+set_location_assignment PIN_N20 -to Hex5[6]
+set_location_assignment PIN_L19 -to Hex5[7]
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

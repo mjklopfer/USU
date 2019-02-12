@@ -1,0 +1,101 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'VGAPLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 31.976
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'VGAPLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'VGAPLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 37.167
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'VGAPLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.531
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MAX10_CLK1_50'
+Slack : 9.801
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MAX10_CLK2_50'
+Slack : 16.000
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'VGAPLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 19.581
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ADC_CLK_10'
+Slack : 96.000
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'VGAPLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 32.491
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'VGAPLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.305
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'VGAPLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 37.365
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'VGAPLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.396
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MAX10_CLK1_50'
+Slack : 9.736
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MAX10_CLK2_50'
+Slack : 16.000
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'VGAPLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 19.576
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ADC_CLK_10'
+Slack : 96.000
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'VGAPLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 36.240
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'VGAPLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.147
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'VGAPLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 38.609
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'VGAPLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.659
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MAX10_CLK1_50'
+Slack : 9.523
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MAX10_CLK2_50'
+Slack : 16.000
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'VGAPLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 19.642
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ADC_CLK_10'
+Slack : 96.000
+TNS   : 0.000
+
+------------------------------------------------------------

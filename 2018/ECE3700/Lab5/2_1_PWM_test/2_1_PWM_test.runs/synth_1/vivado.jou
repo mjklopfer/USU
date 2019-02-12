@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:43:45 MST 2015
+# IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
+# Start of session at: Thu Mar 15 12:33:41 2018
+# Process ID: 2920
+# Current directory: C:/XilinxWorking/Lab5/2_1_PWM_test/2_1_PWM_test.runs/synth_1
+# Command line: vivado.exe -log dim_leds.vds -mode batch -messageDb vivado.pb -notrace -source dim_leds.tcl
+# Log file: C:/XilinxWorking/Lab5/2_1_PWM_test/2_1_PWM_test.runs/synth_1/dim_leds.vds
+# Journal file: C:/XilinxWorking/Lab5/2_1_PWM_test/2_1_PWM_test.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source dim_leds.tcl -notrace

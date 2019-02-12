@@ -1,0 +1,67 @@
+entity sync is
+	clk :in std_logic;
+	hs	 :out std_logic;
+	vs  :out std_logic;
+	
+	);
+	end sync;
+	
+	
+	architecture RTL of sync is
+	
+	type hstate is(hFrontPorch, HorizSync, BackPorch, PixelData);
+	type vstate is(vFrontPorch, VerticalSync, vBackPorch);
+	signal PSh :hstate;
+	signal NSh :hstate;
+	signal PSv :vstate;
+	signal NSv :vstate;
+	begin
+	
+	stateproc :process(clk, aresetl)
+	begin
+		if aresetl='0' then
+			
+			
+			else if
+	
+	
+	
+	end process stateproc;
+	horiz :process(clk,PSh)
+	begin
+		case PSh =>
+			when hFrontPorch=>
+				
+			when HorizSync=>
+			
+			when BackPorch=>
+			
+			when PixelData=>
+	
+	
+	
+	
+	end process horiz;
+	
+	
+	
+	vert :process(clk, aresetl)
+	begin
+		case PSv =>
+			when vFrontPorch=>
+				
+			when VerticalSync=>
+			
+			when vBackPorch=>
+			
+		
+	
+	
+	
+	end process vert;
+	
+	
+	
+	
+	
+	end architecture RTL;

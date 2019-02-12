@@ -1,0 +1,6 @@
+DATE = "09:12:20 September 29, 2018"
+QUARTUS_VERSION = "16.0.0"
+
+# Revisions
+
+PROJECT_REVISION = "RandomNumberGenerator"
