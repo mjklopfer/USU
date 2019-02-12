@@ -27,6 +27,7 @@
 |2018|[**ECE5780**](https://github.com/tiptonite/USU/tree/master/2018/ECE5780)|*Embedded Real-Time Systems*|C, ADA, nxtOSEK|
 |2018|[**ECE5930**](https://github.com/tiptonite/USU/tree/master/2018/ECE5930)|*Reconfigurable Computing*|C++, VHDL|
 |2018|**ECE6240**|*Space Environment and Engineering*|Python, MATLAB|
+|2019|[**ECE6930**](https://github.com/tiptonite/USU/tree/master/2019/ECE6930)|*Discrete Systems and Signals*|C, MATLAB|
 
 **Masters Research** : Scintillation Prediction Observation Research Task (SPORT) Utah State University Center For Space Engineering
 Development of space instrumention for cubesat to measure density of ionosphere.   Developed C firmware for microprocessor and FPGA image in VHDL. Created a emulator of the spacecraft computer in python for testing Utah State's instrumentation board and communication with main flight computer.
