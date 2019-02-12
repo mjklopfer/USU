@@ -1,7 +1,7 @@
 ![Utah State](https://engineering.usu.edu/images/logos-wordmarks/ece/ece-stacked-black.png)
 
 
-# B.S. Computer Engineering - Utah State University 2018
+# B.S. Computer Engineering - Utah State University 2018  _Minors in Computer Science and Math_
 # M.S. Electrical Engineering - Utah State University 2020
 
 
