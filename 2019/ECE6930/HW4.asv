@@ -1,0 +1,9 @@
+F=[-1:0.01:1];
+ X=1./(1-0.9*exp(-i*2*pi*(F-(1./8))));
+ Y=0.5*(1./(1-0.9*exp(-i*2*pi*(F-(1./8)))))+(0.5*conj(1./(1-0.9*exp(-i*2*pi*(-F-(1./8))))));
+ figure(1);
+ subplot(121)
+ hold on
+ plot(F,X,'LineWidth',2);
+ plot(F,Y,'LineWidth',2);
+ hold off
