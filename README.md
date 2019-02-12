@@ -22,7 +22,7 @@
 |2017|[**ECE6460**](https://github.com/tiptonite/USU/tree/master/2017/ECE6460)|*VLSI Design Automation*|C++|
 |2018|[**CS3100**](https://github.com/tiptonite/USU/tree/master/2018/CS3100)|*OS and Concurrency*|C++|
 |2018|[**CS5680**](https://github.com/tiptonite/USU/tree/master/2018/CS5680)|*Computer Vision*|MATLAB|
-|2018|[**ECE5930**](https://github.com/tiptonite/USU/tree/master/2018/ECE3700)|*ST: Digital System Design*|C,VHDL|
+|2018|[**ECE5930**](https://github.com/tiptonite/USU/tree/master/2018/ECE3700)|*ST: Digital System Design*|C,Verilog,VHDL|
 |2018|**ECE5240**|*Space System Design*|Excel|
 |2018|[**ECE5780**](https://github.com/tiptonite/USU/tree/master/2018/ECE5780)|*Embedded Real-Time Systems*|C, ADA, nxtOSEK|
 |2018|[**ECE5930**](https://github.com/tiptonite/USU/tree/master/2018/ECE5930)|*ST: Reconfigurable Computing*|C++, VHDL|
