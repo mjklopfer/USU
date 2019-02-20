@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-
+#define IOBUFFERSIZE 1024
 //default header for files
 typedef struct
 {
@@ -16,7 +16,7 @@ typedef struct
 
 
 int main(int argc, char *argv[]){
-    printf("1D convolution: impulse, fin, fout\n");
+    printf("1D fir filter: impulse, fin, fout\n");
     FILE *fh,*fx,*fy;
     //check if user provided correct number of inputs
     if(argc != 4)
@@ -57,28 +57,38 @@ int main(int argc, char *argv[]){
     int Lh,Lx, Ly,Lz;
     Lh=hh.d0; //Length of impulse response
     Lx=hx.d0; //Length of input
-    Ly=Lx+(Lh-1); //Length of convolution
-    Lz=Lx=2*(Lh-1);
+    Ly=Lx; //Length of convolution
     hy.d0=Ly;
     fwrite(&hy,sizeof(dsp_file_header),1,fy);
     printf("Finished writing header\n");
-    printf("Starting Convolution\n");
-    float *x=(float*)calloc(sizeof(float),Lz);
-    float *y=(float*)calloc(sizeof(float),Ly);
-    float *h=(float*)calloc(sizeof(float),Lh);
+    printf("Starting Fir filtering\n");
+    float *b=(float*)calloc(sizeof(float),Lx); //circular buffer
+    float *y=(float*)calloc(sizeof(float),Ly); //output file
+    float *h=(float*)calloc(sizeof(float),Lh); //impulse response
+    float x[IOBUFFERSIZE],y[IOBUFFERSIZE];
+    float acc;
+    int num, k=Lh-1;
+    num=fread(x,sizeof(float),IOBUFFERSIZE,fx); //read in samples
 
-   int i, j;
-   for(i=0; i<Ly; i++){
-       for(j=0;j<Lh; j++){
-           y[i]+= h[j]*x[i+j]; //MACC
-       }
-   }
-    fwrite(y,sizeof(float),Ly,fy);
-    
-    printf("Finished convolution\n");
-    printf("Number of zeros padding input signal %d\n",);
-    printf("Total length of padded input signal %d\n",);
-    printf("Length of output signal %d\n",);
+    while(num>0){
+        for(int i=0;i<num; i++){
+            b[k]=x[i]; //copy sample into circular buffer
+            acc=0.0; //initialize accumulator
+            for(int n=0;n<Lh;n++){
+                acc+=h[n]*g[(n+k)%Lh];
+            }
+            y[i]=acc;
+            k--;
+            k=(k+Lh)%Lh;
+        }
+        fwrite(y,sizeof(float),num,fy);
+        num=fread(x,sizeof(float),IOBUFFERSIZE,fx);
+    }
+  
+    printf("Finished fir filtering\n");
+    printf("Length of output signal %d\n",Ly);
+    printf("Number of transient output samples %d\n",);
+    printf("Number of valid output samples %d\n",);
     
     fclose(fh);
     fclose(fx);
