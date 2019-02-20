@@ -58,10 +58,7 @@ int main(int argc, char *argv[]){
     Lh=hh.d0; //Length of impulse response
     Lx=hx.d0; //Length of input
     Ly=Lx+(Lh-1); //Length of convolution
-    
-    Lz=Lx+2*(Lh-1);
-
-    printf("Ly: %d Lx: %d Lh: %d Lz: %d \n",Ly,Lx,Lh,Lz);
+    Lz=Lx=2*(Lh-1);
     hy.d0=Ly;
     fwrite(&hy,sizeof(dsp_file_header),1,fy);
     printf("Finished writing header\n");
@@ -69,26 +66,19 @@ int main(int argc, char *argv[]){
     float *x=(float*)calloc(sizeof(float),Lz);
     float *y=(float*)calloc(sizeof(float),Ly);
     float *h=(float*)calloc(sizeof(float),Lh);
-    printf("Allocated memory\n");
-    fread(x+Lh-1,sizeof(float),Lx,fx);
-    fread(h,sizeof(float),Lh,fh);
-    printf("Finished reading in Data\n");
+
    int i, j;
    for(i=0; i<Ly; i++){
-       //printf("First loop\n");
        for(j=0;j<Lh; j++){
-          // printf("Second loop\n");
-        //  printf("i: %d  j: %d  i+j: %d Ly: %d  Lh: %d Lx: %d \n",i,j,i+j,Ly,Lh,Lx);
            y[i]+= h[j]*x[i+j]; //MACC
        }
    }
-   printf("writing out\n");
     fwrite(y,sizeof(float),Ly,fy);
     
     printf("Finished convolution\n");
-    printf("Number of zeros padding input signal %d\n", (Lh-1));
-    printf("Total length of padded input signal %d\n", Lz);
-    printf("Length of output signal %d\n",Ly);
+    printf("Number of zeros padding input signal %d\n",);
+    printf("Total length of padded input signal %d\n",);
+    printf("Length of output signal %d\n",);
     
     fclose(fh);
     fclose(fx);
