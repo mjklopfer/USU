@@ -63,20 +63,26 @@ int main(int argc, char *argv[]){
     printf("Finished writing header\n");
     printf("Starting Fir filtering\n");
     float *b=(float*)calloc(sizeof(float),Lx); //circular buffer
-    float *y=(float*)calloc(sizeof(float),Ly); //output file
+   // float *y=(float*)calloc(sizeof(float),Ly); //output file
     float *h=(float*)calloc(sizeof(float),Lh); //impulse response
     float x[IOBUFFERSIZE],y[IOBUFFERSIZE];
     float acc;
     int num, k=Lh-1;
     num=fread(x,sizeof(float),IOBUFFERSIZE,fx); //read in samples
-
+    /*for(int i=0;i<IOBUFFERSIZE;i++){
+        printf("%d: %f",i,x[i]);
+    }*/
+    fread(h,sizeof(float),Lh,fh);
     while(num>0){
         for(int i=0;i<num; i++){
+        //    printf("x[i]:%f\n",x[i]);
             b[k]=x[i]; //copy sample into circular buffer
             acc=0.0; //initialize accumulator
             for(int n=0;n<Lh;n++){
-                acc+=h[n]*g[(n+k)%Lh];
+                acc+=h[n]*b[(n+k)%Lh];
+
             }
+            //printf("%f\n",acc);
             y[i]=acc;
             k--;
             k=(k+Lh)%Lh;
@@ -87,8 +93,8 @@ int main(int argc, char *argv[]){
   
     printf("Finished fir filtering\n");
     printf("Length of output signal %d\n",Ly);
-    printf("Number of transient output samples %d\n",);
-    printf("Number of valid output samples %d\n",);
+    //printf("Number of transient output samples %d\n",);
+    //printf("Number of valid output samples %d\n",);
     
     fclose(fh);
     fclose(fx);
