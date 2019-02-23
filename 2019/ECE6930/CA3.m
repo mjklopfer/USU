@@ -1,24 +1,29 @@
 orig='fireflyintro.wav';
 conv='fireflyconv.wav';
 fir='fireflyfir.wav';
+
 [xo,fso]=audioread(orig);
 [xc,fsc]=audioread(conv);
 [xf,fsf]=audioread(fir);
 timeo=[0:length(xo)-1]/fso;
 timec=[0:length(xc)-1]/fsc;
 timef=[0:length(xf)-1]/fsf;
+figure(1)
 subplot(311)
 plot(timeo,xo);
 title('Original Firefly intro');
 xlabel('time [seconds]','FontSize',18);
 ylabel('Amplitude','FontSize',18);
+ylim([-0.8 0.4]);
 subplot(312)
 plot(timec,xc);
 title('Convolution Firefly intro');
 xlabel('time [seconds]','FontSize',18);
 ylabel('Amplitude','FontSize',18);
+ylim([-0.8 0.4]);
 subplot(313)
 plot(timef,xf);
 title('Filtering Firefly intro');
 xlabel('time [seconds]','FontSize',18);
 ylabel('Amplitude','FontSize',18);
+ylim([-0.8 0.4]);

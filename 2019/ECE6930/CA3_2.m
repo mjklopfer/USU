@@ -1,0 +1,12 @@
+subplot(221);
+imagesc(z0);
+title("y0");
+subplot(222);
+imagesc(z1);
+title("y1");
+subplot(223);
+imagesc(z);
+title("y");
+subplot(224);
+imshow(ig);
+title("x");

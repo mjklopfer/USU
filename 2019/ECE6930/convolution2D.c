@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-
+#define X(u,v) x[(u)*Cz+(v)]
+#define H(u,v) h[(u)*Ch+(v)]
+#define Y(u,v) y[(u)*Cy+(v)]
 //default header for files
 typedef struct
 {
@@ -16,8 +18,8 @@ typedef struct
 
 
 int main(int argc, char *argv[]){
-    printf("2D convolution: impulse, fin, fout\n");
-    FILE *fh,*fx,*fy;
+    printf("2D convolution:fin, fout fz\n");
+    FILE *fin,*fout, *fz;
     //check if user provided correct number of inputs
     if(argc != 4)
     {
@@ -25,74 +27,82 @@ int main(int argc, char *argv[]){
         return 0; 
     }
     //check for errors opening input and output files
-     if(NULL ==(fh=fopen(argv[1],"rb")))
+     float h [9]={-1,0,1,-2,0,2,-1,0,1};
+    // float h [9] ={-1,-2,-1,0,0,0,1,2,1};
+    if(NULL ==(fin=fopen(argv[1],"rb")))
     {
-        printf("ERROR: Can't open %s for impulse.\n",argv[1]);
+        printf("ERROR: Can't open %s for input.\n",argv[1]);
         return 0;
     }
-    if(NULL ==(fx=fopen(argv[2],"rb")))
+    if(NULL ==(fout=fopen(argv[2],"wb")))
     {
-        printf("ERROR: Can't open %s for input.\n",argv[2]);
+        printf("ERROR: Can't open %s for output.\n",argv[2]);
         return 0;
     }
-    if(NULL ==(fy=fopen(argv[3],"wb")))
+    if(NULL ==(fz=fopen(argv[3],"wb")))
     {
         printf("ERROR: Can't open %s for output.\n",argv[3]);
         return 0;
     }
+
     printf("Start Processing\n");
 
-    dsp_file_header hh, hx, hy;
-    //read in headers of input files
-    fread(&hx,sizeof(dsp_file_header),1,fx);
-    fread(&hh,sizeof(dsp_file_header),1,fh);
-    if(hx.nchan>1){
-        printf("Input file must be single channel signal.\n");
-        return 0;
-    }
-
+    dsp_file_header hin, hout,hz;
+    //read in headers of mono files
+    fread(&hin,sizeof(dsp_file_header),1,fin);
     printf("Finished reading input header\n");
-    memcpy(&hy,&hx,sizeof(dsp_file_header));
-    printf("Finished copying header\n");
-    int Lh,Lx, Ly,Lz;
-    Lh=hh.d0; //Length of impulse response
-    Lx=hx.d0; //Length of input
-    Ly=Lx+(Lh-1); //Length of convolution
-    
-    Lz=Lx+2*(Lh-1);
+    int Rh=3;  //impulse
+    int Ch = 3; //impulse
+    int Rx=hin.d0; //input file
+    int Cx=hin.d1; //input file
+    int Ry=Rx+(Rh-1); //output file
+    int Cy=Cx+(Rh-1); //output file   
+    int Rz = Rx+2*(Rh-1); //zero padded
+    int Cz = Cx+2*(Ch-1); //zero padded
+    memcpy(&hout,&hin,sizeof(dsp_file_header));
+    memcpy(&hz,&hin,sizeof(dsp_file_header));
+    hout.d0=Ry;
+    hout.d1=Cy;
+    hz.d0=Rz;
+    hz.d1=Cz;
 
-    printf("Ly: %d Lx: %d Lh: %d Lz: %d \n",Ly,Lx,Lh,Lz);
-    hy.d0=Ly;
-    fwrite(&hy,sizeof(dsp_file_header),1,fy);
+
+    
+    printf("Finished copying header\n");
+    fwrite(&hout,sizeof(dsp_file_header),1,fout);
+    fwrite(&hz,sizeof(dsp_file_header),1,fz);
     printf("Finished writing header\n");
-    printf("Starting Convolution\n");
-    float *x=(float*)calloc(sizeof(float),Lz);
-    float *y=(float*)calloc(sizeof(float),Ly);
-    float *h=(float*)calloc(sizeof(float),Lh);
-    printf("Allocated memory\n");
-    fread(x+Lh-1,sizeof(float),Lx,fx);
-    fread(h,sizeof(float),Lh,fh);
-    printf("Finished reading in Data\n");
-   int i, j;
-   for(i=0; i<Ly; i++){
-       //printf("First loop\n");
-       for(j=0;j<Lh; j++){
-          // printf("Second loop\n");
-        //  printf("i: %d  j: %d  i+j: %d Ly: %d  Lh: %d Lx: %d \n",i,j,i+j,Ly,Lh,Lx);
-           y[i]+= h[j]*x[i+j]; //MACC
-       }
-   }
-   printf("writing out\n");
-    fwrite(y,sizeof(float),Ly,fy);
+    
+
+    float *x=(float*)calloc(sizeof(float),Rz*Cz); //zero padded array for input
+    float *y=(float*)calloc(sizeof(float),Ry*Cy); //output array
+
+    float *xp=x+Cz*(Rh-1)+(Ch-1);
+
+    for(int i=0;i<Rx;i++,xp+=Cz){
+        fread(xp,sizeof(float),Cx,fin);
+    }
+    float pixel;
+    int i,j,k,l;
+    for(i=0;i<Ry;i++){
+        for(j=0;j<Cy;j++){
+            for(pixel=0.0, k=0;k<Rh;k++){
+                for(l=0;l<Ch;l++){
+                    pixel+=H(k,l)*X(i+k,j+l);
+                }
+            }
+            Y(i,j)=pixel;
+        }
+    }
+   
     
     printf("Finished convolution\n");
-    printf("Number of zeros padding input signal %d\n", (Lh-1));
-    printf("Total length of padded input signal %d\n", Lz);
-    printf("Length of output signal %d\n",Ly);
+    fwrite(x,sizeof(float),Rz*Cz,fz);
+    fwrite(y,sizeof(float),Ry*Cy,fout);
     
-    fclose(fh);
-    fclose(fx);
-    fclose(fy);
+    fclose(fin);
+    fclose(fout);
+    fclose(fz);
 
     return 1;
 }
